@@ -1,34 +1,42 @@
-/**
- * importer.less
- *
- * By default, new Sails projects are configured to compile this file
- * from LESS to CSS.  Unlike CSS files, LESS files are not compiled and
- * included automatically unless they are imported below.
- *
- * The LESS files imported below are compiled and included in the order
- * they are listed.  Mixins, variables, etc. should be imported first
- * so that they can be accessed by subsequent LESS stylesheets.
- *
- * (Just like the rest of the asset pipeline bundled in Sails, you can
- * always omit, customize, or replace this behavior with SASS, SCSS,
- * or any other Grunt tasks you like.)
- */
+//google fonts
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic);
+@import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
 
+@import "./bootstrap/theme.less";
+//MISC
+//----
+@import "core.less";
+@import "vars.less";
+@import "mixins.less";
 
+//COMPONENTS
+//-----------
+@import "header.less";
+@import "sidebar.less";
+@import "dropdown.less";
+@import "forms.less";
+@import "progress-bars.less";
+@import "small-box.less";
+@import "boxes.less";
+@import "timeline.less";
+@import "buttons.less";
+@import "callout.less";
+@import "alerts.less";
+@import "navs.less";
 
-// For example:
-//
-// @import 'variables/colors.less';
-// @import 'mixins/foo.less';
-// @import 'mixins/bar.less';
-// @import 'mixins/baz.less';
-//
-// @import 'styleguide.less';
-// @import 'pages/login.less';
-// @import 'pages/signup.less';
-//
-// etc.
+//PAGES
+//------
+@import "mailbox.less";
+@import "lockscreen.less";
+@import "login_and_register.less";
+@import "404_500_errors.less";
+@import "invoice.less";
 
-a{
-	color: green;
-}
+//Skins
+//-------
+@import "skins.less";
+
+//Plugins
+//--------
+@import "iCheck.less";
+@import "pace.less";

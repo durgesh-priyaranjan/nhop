@@ -30,8 +30,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/shoptimize/gulpify.git"
+    "url": "git@github.com:durgesh-priyaranjan/nhop.git"
   },
-  "author": "shoptimize",
+  "author": "Durgesh Priyaranjan",
   "license": "Do WTF you want to do."
 }
