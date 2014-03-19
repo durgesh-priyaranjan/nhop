@@ -1,3 +1,3 @@
-# gulpify
+# nhop
 
-a [Sails](http://sailsjs.org) application
+A node.js shopping cart [ ! ] Work in progress [ ! ]
