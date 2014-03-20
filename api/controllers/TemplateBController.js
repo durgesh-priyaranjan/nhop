@@ -17,8 +17,8 @@ module.exports = {
 	_config: {},
 
 	index: function index(req, res, next) {
-		res.render(btPath + req.params.templateName, function( err, data){
-			if(err){
+		res.render(btPath + req.params.templateName, function(err, data) {
+			if (err) {
 				res.status(404).render("backend/404");
 			} else {
 				res.end();

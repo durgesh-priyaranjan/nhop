@@ -21,10 +21,47 @@
 
 module.exports.routes = {
 
-  // Frontend
+	/*
+	Front-end routing
+  */
 
 
-  // Backend 
-  "/bt/:templateName": "TemplateBController"
+	/*
+	Backend Routing [Views]
+	-> All the view routes will be handled by  angular js.
+	-> So, just 2 views will be rendered from server
+	-> 1) Credential page, which included signin, login (If any admin is present) else
+		  sigup view (If no admin is present in DB)
+	-> 2) Admin Home page (with nav, header and footer only)
+  */
+
+	// Template router [returns template to angular js.]
+	"/bt/:templateName": "TemplateBController",
+
+	"/adv": "RouteBController",
+	"/admin": "RouteBController",
+
+	/*
+	Any unhandled view route, to be handled by angular js, so just send the basic page
+	depending on authentication status of user.
+   */
+	"/adv/:param_first?/:param_second?/:param_third?/:param_fourth?": "RouteBController",
+
+	/*
+	Backend Routing [Functionalities]
+   */
+	'post ad/login': {
+		controller: 'AuthController',
+		action: 'login'
+	},
+	'get ad/logout': {
+		controller: 'AuthController',
+		action: 'logout'
+	},
+	/** Create the route to handle user activations */
+	'get ad/user/:id/activate/:token': {
+		controller: 'UserController',
+		action: 'activate'
+	}
 
 };
