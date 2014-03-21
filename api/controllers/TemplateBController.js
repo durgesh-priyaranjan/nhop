@@ -7,21 +7,28 @@
  *					-> Routes should be as: /bt/:templateName
  *					-> Return the template present in views/backend/template
  *					-> But only when user[admin] is authenticated
- *					-> If xhr request is made for template, return content of template
- *					-> If normal get request is made for template, return it with layout.
  */
 
-var btPath = "backend/templates/";
+var fs = require('fs'),
+	CONFIG = require("config");
 
 module.exports = {
 	_config: {},
 
 	index: function index(req, res, next) {
-		res.render(btPath + req.params.templateName, function(err, data) {
-			if (err) {
-				res.status(404).render("backend/404");
+
+		// Check if requested template is present
+		fs.exists(CONFIG.backend_template_path, function(exists) {
+			if (exists) {
+
+				// If exists, render it without layout
+				res.view(CONFIG.backend_template_path + req.params.templateName, {
+					layout: false
+				})
 			} else {
-				res.end();
+
+				// If not present, send 404
+				res.status(404).render("backend/404");
 			}
 		});
 	}
